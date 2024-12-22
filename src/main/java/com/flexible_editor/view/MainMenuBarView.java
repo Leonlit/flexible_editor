@@ -1,21 +1,14 @@
-package com.flexible_editor;
+package com.flexible_editor.view;
 
-import javafx.application.Application;
-import javafx.scene.Scene;
+import com.flexible_editor.model.MainMenuBarModel;
+
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SeparatorMenuItem;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
-public class App extends Application {
-
-    @Override
-    public void start(Stage primaryStage) {
-        MenuBar menuBar = new MenuBar();
-
+public class MainMenuBarView extends MenuBar {
+    public MainMenuBarView (MainMenuBarModel viewModel, Runnable actionHandler) {
         // Create Menus
         Menu fileMenu = new Menu("File");
         Menu editMenu = new Menu("Edit");
@@ -45,22 +38,6 @@ public class App extends Application {
         );
 
         // Add Menus to MenuBar
-        menuBar.getMenus().addAll(fileMenu, editMenu, helpMenu);
-
-        VBox root = new VBox();
-        root.getChildren().add(menuBar);
-
-        BorderPane editor = new BorderPane();
-        root.getChildren().add(editor);
-
-        Scene scene = new Scene(root, 800, 600);
-        primaryStage.setTitle("Flexible Editor");
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        getMenus().addAll(fileMenu, editMenu, helpMenu);
     }
-
-    public static void main(String[] args) {
-        launch();
-    }
-
 }
