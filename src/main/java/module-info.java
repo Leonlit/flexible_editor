@@ -5,4 +5,6 @@ module com.flexible_editor {
     requires javafx.fxml;
     requires org.fxmisc.richtext;
     exports com.flexible_editor;
+    exports com.flexible_editor.controller;
+    opens com.flexible_editor.controller to javafx.fxml;
 }
